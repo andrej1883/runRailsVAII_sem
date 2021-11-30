@@ -95,6 +95,7 @@
     <orderEntry type="library" scope="PROVIDED" name="websocket-driver (v0.7.5, ruby-3.0.2-p107) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-extensions (v0.1.5, ruby-3.0.2-p107) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="zeitwerk (v2.5.1, ruby-3.0.2-p107) [gem]" level="application" />
+    <orderEntry type="library" name="bootstrap" level="application" />
   </component>
   <component name="RModuleSettingsStorage">
     <LOAD_PATH number="0" />
