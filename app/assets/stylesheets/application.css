@@ -1,0 +1,391 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* navbar*/
+
+ul.topnav {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+ul.topnav li {
+    float: left;
+}
+
+ul.topnav li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {
+    background-color: #665;
+}
+
+ul.topnav li a.active {
+    background-color: darkorange;
+    margin: 0 10px;
+}
+
+ul.topnav li.right {
+    float: right;
+}
+
+@media screen and (max-width: 600px) {
+    ul.topnav li.right,
+    ul.topnav li {
+        float: none;
+    }
+}
+
+/* navbar */
+
+
+/*login*/
+
+.login, .contact_cont {
+    position: relative;
+    min-height: 100vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+}
+.login{
+    background: url(https://1n4rcn88bk4ziht713dla5ub-wpengine.netdna-ssl.com/wp-content/uploads/2016/12/81A_3606_resized.jpg);
+    background-size: cover;
+}
+.loginForm {
+    width: 20%;
+    padding: 40px;
+    background: #fff;
+    min-width: 250px;
+    max-width: 400px;
+}
+
+.loginForm h2 {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 41px;
+    text-align: center;
+}
+
+.loginForm h5 {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.contactForm_cont .inputBox_cont,
+.loginForm .inputBox {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.contactForm_cont .inputBox_cont input,
+.contactForm_cont .inputBox_cont textarea,
+.loginForm .inputBox input {
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    resize: none;
+}
+
+.loginForm .inputBox span,
+.contactForm_cont .inputBox_cont span {
+    position: absolute;
+    left: 0;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    pointer-events: none;
+    transition: 0.5s;
+    color: #665;
+}
+
+.checkBox {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.social {
+    margin-top: -5px;
+}
+
+.contactForm_cont .inputBox_cont input:focus ~ span,
+.contactForm_cont .inputBox_cont input:valid ~ span,
+.contactForm_cont .inputBox_cont textarea:focus ~ span,
+.contactForm_cont .inputBox_cont textarea:valid ~ span,
+.loginForm .inputBox input:focus ~ span,
+.loginForm .inputBox input:valid ~ span {
+    color: darkorange;
+    font-size: 12px;
+    transform: translateY(-20px);
+}
+
+@media (max-width: 600px) {
+    .loginForm {
+        padding: 25px;
+    }
+
+    .loginForm h2 {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 31px;
+        width: 200px;
+    }
+
+    .loginForm h5 {
+        font-size: 10px;
+        margin-top: 15px;
+        font-weight: 600;
+    }
+
+    .loginForm .inputBox input,
+    .loginForm .inputBox span {
+        font-size: 12px;
+        width: 200px;
+    }
+
+    .checkBox {
+        font-size: 15px;
+        width: 200px;
+    }
+
+    .loginFooter {
+        position: fixed;
+        width: 100vw;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        padding: 3px;
+        background-color: darkorange;
+        color: white;
+    }
+}
+
+/*login*/
+
+/*about*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+.container_about {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: visible;
+    scroll-snap-type: y mandatory;
+}
+
+.container_about .section_about {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: start;
+    background-blend-mode: multiply;
+}
+
+.container_about .section_about:nth-child(1) {
+    background: url(https://wallpaperaccess.com/full/1986609.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container_about .section_about:nth-child(2) {
+    background: url(https://wallpapercave.com/wp/wp2042571.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container_about .section_about .content_about {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    max-width: 700px;
+}
+
+.container_about .section_about .content_about h2 {
+    background: #fff;
+    color: #111;
+    font-weight: 600;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 2em;
+}
+
+.container_about .section_about .content_about p {
+    background: #fff;
+    color: #111;
+    font-weight: 300;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+    .content_about {
+        padding: 10px;
+    }
+
+    .container_about .section_about .content_about h2 {
+        max-width: 200px;
+        font-weight: 700;
+        padding: 3%;
+        font-size: 15px;
+        margin-left: -20px;
+    }
+
+    .container_about .section_about .content_about p {
+        font-weight: 100;
+        font-size: 10px;
+        margin-bottom: -15px;
+        padding: 3%;
+        margin-left: -20px;
+    }
+}
+
+/*about*/
+
+/*contact*/
+
+.contact_cont {
+
+    background: url(https://i.pinimg.com/originals/ba/b7/85/bab7852145ed44060ff3422348fd7bd7.jpg);
+}
+.contact_cont .content_cont {
+    max-width: 800px;
+    text-align: center;
+}
+
+.contact_cont .content_cont h2 {
+    font-size: 36px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.contact_cont .content_cont p {
+    font-weight: 300;
+    color: #fff;
+}
+
+.container_cont {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.container_cont .contactInfo_cont {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container_cont .contactInfo_cont .box_cont {
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+}
+
+.container_cont .contactInfo_cont .box_cont .icon_cont {
+    min-width: 60px;
+    height: 60px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 22px;
+}
+
+.container_cont .contactInfo_cont .box_cont .text_cont {
+    display: flex;
+    margin-left: 20px;
+    font-size: 16px;
+    color: #fff;
+    flex-direction: column;
+    font-weight: 300;
+}
+
+.container_cont .contactInfo_cont .box_cont .text_cont h3 {
+    font-weight: 500;
+    color: darkorange;
+}
+
+.contactForm_cont {
+    width: 40%;
+    padding: 40px;
+    background: #fff;
+    min-width: 300px;
+    max-width: 400px;
+}
+
+.contactForm_cont h2 {
+    font-size: 30px;
+    color: #333;
+    font-weight: 500;
+}
+
+.contactForm_cont .inputBox_cont input[type="submit"] {
+    cursor: pointer;
+    padding: 10px;
+}
+
+@media (max-width: 600px) {
+    .contact_cont {
+        padding: 50px;
+    }
+    .container_cont {
+        flex-direction: column;
+    }
+    .container_cont .contactInfo_cont {
+        margin-bottom: 40px;
+    }
+    .container_cont .contactInfo_cont {
+        width: 100%;
+    }
+}
+
+/*contact*/
+
+footer {
+    text-align: center;
+    padding: 3px;
+    background-color: darkorange;
+    color: white;
+}
