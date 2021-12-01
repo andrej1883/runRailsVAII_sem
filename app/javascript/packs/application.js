@@ -7,8 +7,17 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import "popper.js"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 const webpack = require('webpack')
+
+import "../styles/application.scss"
+
+import passwordChanged from './check_passwd'
+window.passwordChanged = passwordChanged
+
+import dosmth from './custom'
+window.dosmth = dosmth

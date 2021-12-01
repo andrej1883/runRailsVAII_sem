@@ -13,4 +13,49 @@
  *= require_tree .
  *= require_self
  */
+.indicator {
+    height: 15px;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    display: none;
+}
+
+.passwdstr {
+    text-align: center;
+}
+
+.indicator span {
+    width: 100%;
+    height: 100%;
+    background: lightgrey;
+    border-radius: 2px;
+    position: relative;
+}
+
+.indicator span:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+}
+
+.indicator span.active.weak:before{
+    background-color: red;
+}
+
+.indicator span.active.ok:before{
+    background-color: orange;
+}
+
+.indicator span.active.strong:before{
+    background-color: forestgreen;
+}
+
+
+
 
