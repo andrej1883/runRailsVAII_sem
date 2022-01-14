@@ -56,6 +56,84 @@
     background-color: forestgreen;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+.container_about {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: visible;
+    scroll-snap-type: y mandatory;
+}
+
+.container_about .section_about {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: start;
+    background-blend-mode: multiply;
+}
+
+.container_about .section_about:nth-child(1) {
+    background: url(https://wallpaperaccess.com/full/1986609.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container_about .section_about:nth-child(2) {
+    background: url(https://wallpapercave.com/wp/wp2042571.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container_about .section_about .content_about {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    max-width: 700px;
+}
+
+.container_about .section_about .content_about h2 {
+    background: #fff;
+    color: #111;
+    font-weight: 600;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 2em;
+}
+
+.container_about .section_about .content_about p {
+    background: #fff;
+    color: #111;
+    font-weight: 300;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+    .content_about {
+        padding: 10px;
+    }
+
+    .container_about .section_about .content_about h2 {
+        max-width: 200px;
+        font-weight: 700;
+        padding: 3%;
+        font-size: 15px;
+        margin-left: -20px;
+    }
+
+    .container_about .section_about .content_about p {
+        font-weight: 100;
+        font-size: 10px;
+        margin-bottom: -15px;
+        padding: 3%;
+        margin-left: -20px;
+    }
+}
+
 
 
 
