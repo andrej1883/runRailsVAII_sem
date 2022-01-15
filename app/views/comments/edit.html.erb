@@ -1,0 +1,13 @@
+<h1>Editing Comment</h1>
+
+<%= form_with(model: [@article, @comment]) do |form| %>
+
+  <div class="field">
+    <%= form.label :commentText %>
+    <%= form.text_area :commentText %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

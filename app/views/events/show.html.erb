@@ -1,0 +1,44 @@
+<div class="container_basic">
+  <br>
+  <div class="card text-center">
+    <div class="card-header">Chosen event</div>
+    <div class="card-body">
+      <h5 class="card-title"><%= @event.name %></h5>
+
+      <p>
+        <strong>Date:</strong>
+        <%= @event.date.strftime('%d.%m.%Y ') %>
+      </p>
+      <p>
+        <strong>Time:</strong>
+        <%= @event.time.utc.strftime('%H:%M ') %>
+      </p>
+      <p>
+        <strong>Place:</strong>
+        <%= @event.place %>
+      </p>
+
+
+      <p>
+        <strong>Surface:</strong>
+        <%= @event.surface %>
+      </p>
+
+      <p>
+        <strong>Organizer:</strong>
+        <%= @event.organizer %>
+      </p>
+
+      <p>
+        <strong>Info:</strong>
+        <%= @event.info %>
+      </p>
+      <%= link_to 'Back', events_path, class: 'btn btn-primary' %>
+      <%= link_to 'Edit', edit_event_path(@event), class: 'btn btn-secondary' %>
+    </div>
+    <div class="card-footer text-muted">
+      <%= time_ago_in_words(@event.updated_at) %> ago
+    </div>
+  </div>
+</div>
+

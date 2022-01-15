@@ -1,0 +1,16 @@
+<div class="container_basic">
+  <br>
+  <%= render 'form', question: @question %>
+  <br>
+  <div class="card">
+    <div class="card-header">
+      Yo can also:
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <%= link_to 'Show', @question, class: 'btn btn-secondary'%>
+        <%= link_to 'Back', questions_path, class: 'btn btn-secondary' %>
+      </blockquote>
+    </div>
+  </div>
+</div>

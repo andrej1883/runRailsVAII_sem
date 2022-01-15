@@ -1,0 +1,61 @@
+<div class="container_basic">
+  <h1>Questions</h1>
+<div class="row row-cols-1 row-cols-md-3">
+  <% @questions.each do |question| %>
+    <div class="col-md-4">
+      <hr class="featurette-divider">
+      <div class="card h-100">
+
+        <div class="card-body">
+          <h5 class="card-header">Email: <%=question.email %></h5>
+          <h6 class="card-title"> From:  <%=question.name %> </h6>
+          <p class="card-text"><%=question.message %> </p>
+          <p class="card-text"> Responded: <%=question.responded %> </p>
+          <p class="card-text">Topic : <%=question.questionTopic %> </p>
+          <%= link_to 'Show more', question, class: 'btn btn-primary btn-sm' %>
+          <%= link_to 'Edit', edit_question_path(question), class: 'btn btn-secondary btn-sm' %>
+          <%= link_to 'Delete', question, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+</div>
+
+
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Message</th>
+      <th>Responded</th>
+      <th>Questiontopic</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @questions.each do |question| %>
+      <tr>
+        <td><%= question.name %></td>
+        <td><%= question.email %></td>
+        <td><%= question.message %></td>
+        <td><%= question.responded %></td>
+        <td><%= question.questionTopic %></td>
+        <td><%= link_to 'Show', question %></td>
+        <td><%= link_to 'Edit', edit_question_path(question) %></td>
+        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Question', new_question_path %>

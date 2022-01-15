@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Header:</strong>
+  <%= @article.header %>
+</p>
+
+<p>
+  <strong>Article:</strong>
+  <%= @article.article %>
+</p>
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>
+
+
+
+
+<h2 class="subtitle is-5 has-text-grey"><%= @article.comments.count %> Comments</h2>
+
+<div id="discussion-replies">
+  <%= render @article.comments %>
+
+</div>
+
+<hr />
+
+<h3 class="subtitle is-3 has-text-grey">Leave a reply</h3>
+<% if user_signed_in? %>
+  <%= render 'comments/form', article: @article %>
+<% else %>
+  <p>To reply you need to <%= link_to 'login', new_user_session_path %>. Don't have an account?
+    <%= link_to 'Sign up', new_user_registration_path %> for one.</p>
+<% end %>
+
+</div>
+
+</div>

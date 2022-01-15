@@ -1,0 +1,23 @@
+<div class="container_basic">
+  <h1>Events</h1>
+
+  <% @events.each do |event| %>
+
+    <hr class="featurette-divider">
+
+    <div class="card">
+      <h5 class="card-header"><%= event.name %> <%= event.date.strftime('%d.%m.%Y ') %></h5>
+      <div class="card-body">
+        <h5 class="card-title"> Place: <%= event.place %></h5>
+        <h6 class="card-title">Registration start: <%= event.time.utc.strftime('%H:%M ') %></h6>
+        <p class="card-text"><%= event.info.truncate(40, :separator => '...') %></p>
+        <%= link_to 'Show more', event, class: 'btn btn-primary' %>
+        <%= link_to 'Edit', edit_event_path(event), class: 'btn btn-secondary' %>
+        <%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      </div>
+    </div>
+
+  <% end %>
+  <hr class="featurette-divider">
+
+</div>

@@ -1,0 +1,72 @@
+<%= form_with(model: question) do |form| %>
+  <% if question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+        <% question.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="card">
+    <div class="card-header">
+      <h2>Edit question</h2>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Set question details</h5>
+
+      <% if user_signed_in? && has_role?(:moderator) %>
+
+        <div class="field form-group">
+          <%= form.label "Name: " %> <%= question.name %>
+        </div>
+        <p></p>
+        <div class="field form-group">
+          <%= form.label "Email: " %> <%= question.email %>
+        </div>
+        <p></p>
+        <div class="field form-group">
+          <%= form.label "Message: " %> <%= question.message %>
+        </div>
+      <% else %>
+        <p></p>
+        <div class="field form-group">
+          <%= form.label :name %><br/>
+          <%= form.text_field :name, class: "form-control", placeholder: "Type in your name", autofocus: true, :required => true %>
+        </div>
+        <p></p>
+        <div class="field form-group">
+          <%= form.label :email %><br/>
+          <%= form.email_field :email, class: "form-control", placeholder: "Email", autofocus: true, autocomplete: "email", :required => true %>
+        </div>
+        <p></p>
+        <div class="field form-group">
+          <%= form.label :message %><br/>
+          <%= form.text_area :message, class: "form-control", placeholder: "Type in your question", autofocus: true, :required => true %>
+        </div>
+      <% end %>
+      <p></p>
+      <% if user_signed_in? && has_role?(:moderator) || user_signed_in? && has_role?(:admin) %>
+
+        <div class="field form-group">
+          <%= form.label :responded %> <%= form.check_box :responded %>
+        </div>
+        <p></p>
+        <div class="field form-group">
+          <%= form.label "Question topic: " %><br/>
+          <%= form.text_field :questionTopic, class: "form-control", placeholder: "Type topic of question", autofocus: true %>
+        </div>
+      <% end %>
+      <br>
+      <%= form.submit 'Submit', class: 'btn btn-primary' %>
+
+    </div>
+  </div>
+
+<% end %>
+
