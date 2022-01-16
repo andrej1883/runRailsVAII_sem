@@ -1,4 +1,9 @@
-<%= form_with(model: @user) do |form| %>
-  <%= form.collection_check_boxes :role_ids, Role.all, :id, :name %>
-  <%= form.button :submit %>
-<% end %>
+<div class="container_basic">
+  <br>
+  <%= form_with(model: @user) do |form| %>
+    <h5>User: <%= @user.email%></h5>
+    <br>
+    <%= form.collection_check_boxes :role_ids, Role.all, :id, :name %>
+    <%= form.button :submit %>
+  <% end %>
+</div>

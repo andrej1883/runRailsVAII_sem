@@ -12,14 +12,18 @@
  *
  *= require_tree .
  *= require_self
+
  */
 
-
-
+.container_form {
+    max-width: 600px;
+    min-width: 200px;
+    margin: auto;
+}
 
 .container_basic {
-    margin-left: 2%;
-    margin-right: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .bd-placeholder-img {
@@ -49,12 +53,36 @@
 .carousel-item {
     height: 32rem;
 }
-.carousel-item > img {
+.carousel-item-img1 {
     position: absolute;
     top: 0;
     left: 0;
     min-width: 100%;
     height: 32rem;
+    background: url(https://wallpaperaccess.com/full/1986609.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.carousel-item-img2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 32rem;
+    background: url(https://hdwallsource.com/img/2017/2/beach-girl-running-wallpaper-60124-61919-hd-wallpapers.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+.carousel-item-img3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 32rem;
+    background: url(https://wallpaperboat.com/wp-content/uploads/2020/10/20/57399/running-02.jpg);
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .indicator {

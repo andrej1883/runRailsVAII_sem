@@ -1,11 +1,15 @@
 <%= form_with(model: [@article, @article.comments.build], remote: true) do |form| %>
 
-  <div class="field">
-    <%= form.label :commentText %>
-    <%= form.text_area :commentText %>
+  <div class="card">
+    <div class="card-header">Comment text:</div>
+    <div class="card-body">
+
+      <div class="field">
+        <%= form.text_area :commentText%>
+      </div>
+      <br>
+      <%= form.submit 'Submit', class: 'btn btn-primary' %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

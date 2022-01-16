@@ -1,7 +1,10 @@
-<% @users.each do |user| %>
-  <%= user.email %>
-  <%= user.roles.pluck(:name) %>
-  <%= link_to 'Edit roles', edit_user_path(user) %>
-  <%= link_to 'Delete user', user_path(user), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %>
+<div class="container_basic">
   <br>
-<% end %>
+  <% @users.each do |user| %>
+    <%= user.email %>
+    <%= user.roles.pluck(:name) %>
+    <%= link_to 'Edit roles', edit_user_path(user) %>
+    <%= link_to 'Delete user', user_path(user), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %>
+    <br>
+  <% end %>
+</div>

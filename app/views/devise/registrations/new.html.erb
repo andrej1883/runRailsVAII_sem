@@ -1,36 +1,48 @@
-<br>
-<div class="card">
-  <div class="card-header">
-    <h4>Sign up</h4>
-  </div>
-  <div class="card-body form-group">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+<div class="container_basic">
+  <div class="container_form">
+    <br>
+    <div class="card">
+      <div class="card-header">
+        <h4>Sign up</h4>
+      </div>
+      <div class="card-body form-group">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="field form-group">
-        <%= f.label :email %><br/>
-        <%= f.email_field :email, class: "form-control", placeholder: "Email", autofocus: true, autocomplete: "email" %>
-      </div>
-      <br>
-      <div class="field form-group">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br/>
-        <%= f.password_field :password, class: "form-control", placeholder: "Password", autocomplete: "new-password" %>
-      </div>
+          <div class="field form-group">
+            <%= f.label :email %><br/>
+            <%= f.email_field :email, class: "form-control", placeholder: "Email", autofocus: true, autocomplete: "email" %>
+          </div>
+          <br>
+          <div class="field form-group">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br/>
+            <%= f.password_field :password, class: "form-control", id: "password1", placeholder: "Password", autocomplete: "new-password", onkeyup: "return passwordChanged();" %>
+          </div>
+          <br>
+          <div class="field form-group">
+            <%= f.label :password_confirmation %><br/>
+            <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Password-repeat", autocomplete: "new-password" %>
+          </div>
+          <br>
+          <div class="passwdstr">
+            <div class="indicator">
+              <span class="weak"></span>
+              <span class="ok"></span>
+              <span class="strong"></span>
+            </div>
+            <br>
+            <span id="strength">Type Password</span>
+          </div>
+          <BR>
+          <div class="actions">
+            <%= f.submit "Sign up", class: 'btn btn-secondary' %>
+          </div>
+        <% end %>
 
-      <div class="field form-group">
-        <%= f.label :password_confirmation %><br/>
-        <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Password-repeat", autocomplete: "new-password" %>
       </div>
-      <br>
-      <div class="actions">
-        <%= f.submit "Sign up", class: 'btn btn-secondary' %>
-      </div>
-    <% end %>
-
+    </div>
   </div>
 </div>
-
-<%= render "devise/shared/links" %>

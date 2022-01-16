@@ -3,16 +3,17 @@
   <%= render 'form', event: @event %>
   <br>
 
-
-  <div class="card">
-    <div class="card-header">
-      Yo can also:
-    </div>
-    <div class="card-body">
-      <blockquote class="blockquote mb-0">
-        <%= link_to 'Show', @event, class: 'btn btn-secondary'%>
-        <%= link_to 'Back', events_path, class: 'btn btn-secondary' %>
-      </blockquote>
+  <div class="container_form">
+    <div class="card">
+      <div class="card-header">
+        Yo can also:
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <%= link_to 'Show', @event, class: 'btn btn-secondary' %>
+          <%= link_to 'Back', events_path, class: 'btn btn-secondary' %>
+        </blockquote>
+      </div>
     </div>
   </div>
 

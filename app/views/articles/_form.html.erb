@@ -11,17 +11,38 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :header %>
-    <%= form.text_field :header %>
-  </div>
 
-  <div class="field">
-    <%= form.label :article %>
-    <%= form.text_area :article %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <div class="card">
+    <div class="card-header">
+      <h2>Edit: <%= @article.header %></h2>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Edit your article: </h5>
+
+      <p></p>
+      <div class="field form-group">
+        <%= form.label "Post image: " %>
+        <%= form.file_field :avatar, class: "form-control" %>
+      </div>
+      <p></p>
+
+      <div class="field form-group">
+        <%= form.label :header %> :
+        <%= form.text_field :header, class: "form-control", placeholder: "Article header", autofocus: true, :required => true %>
+      </div>
+
+      <p></p>
+      <div class="field form-group">
+        <%= form.label :article %> :
+        <p></p>
+        <%= form.rich_text_area :article, class: "form-control", placeholder: "Type your article here", autofocus: true, :required => true %>
+      </div>
+      <p></p>
+      <div class="actions">
+        <%= form.submit 'Submit', class: 'btn btn-primary' %>
+      </div>
 <% end %>
+
+</div>
+</div>

@@ -1,38 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="container_basic">
+  <br>
+  <div class="card">
+    <div class="card-header text-center">Created: <%= time_ago_in_words(@article.created_at) %> ago
+      <% if article_author(@article) %>
+        <div class="buttons">
+          <%= link_to 'Edit', edit_article_path(@article), class: 'button' %>
+          <%= link_to 'Delete', articles_path(@article), method: :delete, data: { confirm: "Delete discussion?" }, class: 'button' %>
+        </div>
+      <% end %>
+    </div>
+    <div class="card-body">
+      <h2 class="card-title text-center"><%= @article.header %></h2>
 
-<p>
-  <strong>Header:</strong>
-  <%= @article.header %>
-</p>
+      <div class="content"><%= @article.article %>
+      </div>
+    </div>
+  </div>
+  <br>
 
-<p>
-  <strong>Article:</strong>
-  <%= @article.article %>
-</p>
+  <hr class="featurette-divider">
+  <h2 class="subtitle is-5 has-text-grey"><%= @article.comments.count %> Comments</h2>
+  <hr class="featurette-divider">
+  <div id="discussion-replies">
+    <%= render @article.comments %>
+  </div>
+  <hr class="featurette-divider">
+  <h3 class="subtitle is-3 has-text-grey">Leave a comment</h3>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
-
-
-
-
-<h2 class="subtitle is-5 has-text-grey"><%= @article.comments.count %> Comments</h2>
-
-<div id="discussion-replies">
-  <%= render @article.comments %>
-
+  <div>
+    <% if user_signed_in? %>
+      <%= render 'comments/form', article: @article %>
+    <% else %>
+      <p>To reply you need to <%= link_to 'login', new_user_session_path %>. Don't have an account?
+        <%= link_to 'Sign up', new_user_registration_path %> for one.</p>
+    <% end %>
+    <br>
+  </div>
 </div>
 
-<hr />
 
-<h3 class="subtitle is-3 has-text-grey">Leave a reply</h3>
-<% if user_signed_in? %>
-  <%= render 'comments/form', article: @article %>
-<% else %>
-  <p>To reply you need to <%= link_to 'login', new_user_session_path %>. Don't have an account?
-    <%= link_to 'Sign up', new_user_registration_path %> for one.</p>
-<% end %>
-
-</div>
-
-</div>

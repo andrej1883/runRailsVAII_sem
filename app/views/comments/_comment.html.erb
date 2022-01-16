@@ -1,26 +1,18 @@
+<br>
+<div class="card">
+  <h6 class="card-header"><strong><%= comment.user.email %></strong> <small><%= time_ago_in_words(comment.created_at) %> ago</small></h6>
+  <div class="card-body">
+    <%= comment.commentText %>
+    <br>
+    <a class="level-item">
+      <%= link_to 'Edit', edit_article_comment_path(comment.article, comment)  %>
+      <span class="icon is-small"><i class="fa fa-pencil"></i></span>
+    </a>
+    <a class="level-item">
+      <%= link_to 'Delete', [comment.article, comment],
+                  method: :delete, data: {confirm: "Are you sure ?" } %>
+      <span class="icon is-small"><i class="fa fa-trash-o"></i></span>
+    </a>
 
-
-<div class="media-content">
-  <div class="content">
-    <p>
-      <strong><%= comment.user.email %></strong> <small><%= time_ago_in_words(comment.created_at) %></small>
-      <br/>
-      <%= comment.commentText %>
-    </p>
   </div>
-    <nav class="level is-mobile">
-      <div class="level-left">
-        <a class="level-item">
-          <%= link_to 'Edit', edit_article_comment_path(comment.article, comment)  %>
-            <span class="icon is-small"><i class="fa fa-pencil"></i></span>
-
-        </a>
-        <a class="level-item">
-          <%= link_to 'Delete', [comment.article, comment],
-                      method: :delete, data: {confirm: "Are you sure ?" } %>
-            <span class="icon is-small"><i class="fa fa-trash-o"></i></span>
-        </a>
-      </div>
-    </nav>
-
 </div>

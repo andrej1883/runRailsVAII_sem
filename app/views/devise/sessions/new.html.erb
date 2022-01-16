@@ -1,86 +1,37 @@
-<br>
-<div class="card">
-  <div class="card-header">
-    <h4>Log in</h4>
-  </div>
-  <div class="card-body">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field form-group">
-        <%= f.label :email %><br/>
-        <%= f.email_field :email, class: "form-control", placeholder: "Email", autofocus: true, autocomplete: "email" %>
+<div class="container_basic">
+  <br>
+  <div class="container_form">
+    <div class="card">
+      <div class="card-header">
+        <h4>Log in</h4>
       </div>
-
-      <div class="field form-group">
-        <%= f.label :password %><br/>
-        <%= f.password_field :password, class: "form-control", id: "password1", placeholder: "Password", autocomplete: "current-password", onkeyup: "return passwordChanged();" %>
-        <br>
-        <div class="passwdstr">
-          <div class="indicator">
-            <span class="weak"></span>
-            <span class="ok"></span>
-            <span class="strong"></span>
+      <div class="card-body">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field form-group">
+            <%= f.label :email %><br/>
+            <%= f.email_field :email, class: "form-control", placeholder: "Email", autofocus: true, autocomplete: "email" %>
           </div>
           <br>
-          <span id="strength">Type Password</span>
-        </div>
-
-        <script>
-            function passwordChanged() {
-                var strength = document.getElementById('strength');
-                var strongRegex = new RegExp("^(?=.{14,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
-                var mediumRegex = new RegExp("^(?=.{10,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
-                var enoughRegex = new RegExp("(?=.{8,}).*", "g");
-
-                var pwd = document.getElementById("password1");
-                const indicator = document.querySelector(".indicator")
-                const weak = document.querySelector(".weak")
-                const ok = document.querySelector(".ok")
-                const strong = document.querySelector(".strong")
-
-                if (pwd.value.length == 0) {
-                    indicator.style.display = "none";
-                    indicator.style.display = "none";
-                    strength.innerHTML = 'Type Password';
-                    strong.classList.remove("active");
-                    weak.classList.remove("active");
-                    ok.classList.remove("active");
-                } else if (false == enoughRegex.test(pwd.value)) {
-                    indicator.style.display = "block";
-                    indicator.style.display = "flex";
-                    weak.classList.remove("active");
-                    strength.innerHTML = 'More Characters';
-                } else if (strongRegex.test(pwd.value)) {
-                    strong.classList.add("active");
-                    strength.innerHTML = '<span style="color:green">Strong!</span>';
-                } else if (mediumRegex.test(pwd.value)) {
-                    ok.classList.add("active");
-                    strong.classList.remove("active");
-                    strength.innerHTML = '<span style="color:orange">Medium!</span>';
-                } else {
-                    ok.classList.remove("active");
-                    weak.classList.add("active");
-                    strength.innerHTML = '<span style="color:red">Weak!</span>';
-                }
-            }
-        </script>
-
-
+          <div class="field form-group">
+            <%= f.label :password %><br/>
+            <%= f.password_field :password, class: "form-control", placeholder: "Password", autocomplete: "current-password" %>
+            <br>
+          </div>
+          <br/>
+          <% if devise_mapping.rememberable? %>
+            <div class="field form-group">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+          <br/>
+          <div class="actions form-group">
+            <%= f.submit "Log in", class: 'btn btn-secondary' %>
+          </div>
+        <% end %>
       </div>
-      <br/>
-      <% if devise_mapping.rememberable? %>
-        <div class="field form-group">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
-        </div>
-      <% end %>
-      <br/>
-      <div class="actions form-group">
-        <%= f.submit "Log in", class: 'btn btn-secondary' %>
-      </div>
-    <% end %>
+    </div>
+    <br/>
   </div>
-</div>
-<br/>
-<%= render "devise/shared/links" %>
 
-<%#= button_tag 'Do smth', id: 'button-click', type: 'button' %>
+</div>

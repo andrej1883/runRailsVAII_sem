@@ -6,12 +6,12 @@ class CommentsController < ApplicationController
 
   # GET /comments or /comments.json
   def index
-    @comments = @article.commments
+    @comments = @article.commments.all.order('created_at desc')
   end
 
   # GET /comments/1 or /comments/1.json
   def show
-    @comments = @article.commments
+    @comments = @article.commments.all.order('created_at desc')
   end
 
   # GET /comments/new

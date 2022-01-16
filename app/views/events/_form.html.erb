@@ -11,52 +11,53 @@
     </div>
   <% end %>
 
+  <div class="container_form">
+    <div class="card">
+      <div class="card-header">
+        <h2>Edit <%= @event.name %></h2>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Set event details</h5>
 
-  <div class="card">
-    <div class="card-header">
-      <h2>Edit <%= @event.name %></h2>
+        <div class="field form-group">
+          <%= form.label :name %><br/>
+          <%= form.text_field :name, class: "form-control", placeholder: "Name", autofocus: true, :required => true %>
+        </div>
+        <p></p>
+        <div class="field form-group">
+          <%= form.label :date %><br/>
+          <%= form.date_select :date, class: "form-control", :required => true %>
+        </div>
+        <p></p>
+        <div class="field form-group">
+          <%= form.label :time %><br/>
+          <%= form.time_select :time, class: "form-control", :required => true %>
+        </div>
+        <p></p>
+        <div class="field form-group">
+          <%= form.label :place %><br/>
+          <%= form.text_field :place, class: "form-control", placeholder: "Race location", autofocus: true %>
+        </div>
+        <p></p>
+        <div class="field form-group">
+          <%= form.label :surface %><br/>
+          <%= form.text_field :surface, class: "form-control", placeholder: "Surface", autofocus: true %>
+        </div>
+        <p></p>
+        <div class="field form-group">
+          <%= form.label :organizer %><br/>
+          <%= form.text_field :organizer, class: "form-control", placeholder: "Race organizer", autofocus: true, :required => true %>
+        </div>
+        <p></p>
+        <div class="field form-group">
+          <%= form.label :info %><br/>
+          <%= form.text_area :info, class: "form-control", placeholder: "Additional about race", autofocus: true, :required => true %>
+        </div>
+        <p></p>
+
+        <%= form.submit 'Update event', class: 'btn btn-primary' %>
+
+      </div>
     </div>
-    <div class="card-body">
-      <h5 class="card-title">Set event details</h5>
-
-      <div class="field form-group">
-        <%= form.label :name %><br/>
-        <%= form.text_field :name, class: "form-control", placeholder: "Name", autofocus: true, :required => true %>
-      </div>
-      <p></p>
-      <div class="field form-group">
-        <%= form.label :date %><br/>
-        <%= form.date_select :date, class: "form-control", :required => true %>
-      </div>
-      <p></p>
-      <div class="field form-group">
-        <%= form.label :time %><br/>
-        <%= form.time_select :time, class: "form-control", :required => true %>
-      </div>
-      <p></p>
-      <div class="field form-group">
-        <%= form.label :place %><br/>
-        <%= form.text_field :place, class: "form-control", placeholder: "Race location", autofocus: true %>
-      </div>
-      <p></p>
-      <div class="field form-group">
-        <%= form.label :surface %><br/>
-        <%= form.text_field :surface, class: "form-control", placeholder: "Surface", autofocus: true %>
-      </div>
-      <p></p>
-      <div class="field form-group">
-        <%= form.label :organizer %><br/>
-        <%= form.text_field :organizer, class: "form-control", placeholder: "Race organizer", autofocus: true, :required => true %>
-      </div>
-      <p></p>
-      <div class="field form-group">
-        <%= form.label :info %><br/>
-        <%= form.text_area :info, class: "form-control", placeholder: "Additional about race", autofocus: true, :required => true %>
-      </div>
-      <p></p>
-
-      <%= form.submit 'Update event', class: 'btn btn-primary' %>
-
-    </div>
-  </div>
 <% end %>
+</div>

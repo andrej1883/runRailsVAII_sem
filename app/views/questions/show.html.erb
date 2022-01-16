@@ -1,29 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="container_basic">
 
-<p>
-  <strong>Name:</strong>
-  <%= @question.name %>
-</p>
+  <br>
+  <div class="card text-center">
+    <div class="card-header">Chosen question</div>
+    <div class="card-body">
+      <h5 class="card-title">From: <%= @question.name %></h5>
 
-<p>
-  <strong>Email:</strong>
-  <%= @question.email %>
-</p>
+      <p>
+        <strong>Email:</strong>
+        <%= @question.email %>
+      </p>
 
-<p>
-  <strong>Message:</strong>
-  <%= @question.message %>
-</p>
+      <p>
+        <strong>Message:</strong>
+        <%= @question.message %>
+      </p>
 
-<p>
-  <strong>Responded:</strong>
-  <%= @question.responded %>
-</p>
+      <p>
+        <strong>Responded:</strong>
+        <%= @question.responded %>
+      </p>
 
-<p>
-  <strong>Questiontopic:</strong>
-  <%= @question.questionTopic %>
-</p>
+      <p>
+        <strong>Questiontopic:</strong>
+        <%= @question.questionTopic %>
+      </p>
 
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
+      <%= link_to 'Back', questions_path, class: 'btn btn-primary' %>
+      <%= link_to 'Edit', edit_question_path(@question), class: 'btn btn-secondary' %>
+    </div>
+    <div class="card-footer text-muted">
+      <%= time_ago_in_words(@question.updated_at) %> ago
+    </div>
+  </div>
+
+
+</div>
