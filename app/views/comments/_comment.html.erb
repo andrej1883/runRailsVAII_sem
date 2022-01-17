@@ -1,12 +1,13 @@
 <br>
 <div class="card" id="comment<%=comment.id %>">
-  <h6 class="card-header"><strong><%= comment.user.email %></strong> <small><%= time_ago_in_words(comment.created_at) %> ago</small></h6>
+  <h6 class="card-header">
+    <strong><%= comment.user.email %></strong> <small><%= time_ago_in_words(comment.created_at) %> ago</small></h6>
   <div class="card-body">
     <%= comment.commentText %>
     <br>
     <%if comment_author(comment) || has_role?(:admin) || has_role?(:moderator) %>
-    <a class="level-item">
-      <%= link_to edit_article_comment_path(comment.article, comment) do %>
+    <a class="level-item" id="editComment">
+      <%= link_to edit_article_comment_path(comment.article, comment), :remote =>true  do %>
         <span class="icon is-small"><i class="fa fa-pencil"></i></span>
       <%end %>
     </a>
@@ -17,5 +18,6 @@
     <%end %>
     </a>
   <%end %>
+
   </div>
 </div>
