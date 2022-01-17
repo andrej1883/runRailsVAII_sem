@@ -16,11 +16,11 @@
           <div class="carousel-caption text-start">
             <h1>Not registered yet? </h1>
             <p>Join us and start your new journey.</p>
-            <%if !user_signed_in? %>
-            <%= link_to 'Sign up today', new_user_registration_path, class: 'btn btn-lg btn-primary' %>
-              <%else %>
+            <% if !user_signed_in? %>
+              <%= link_to 'Sign up today', new_user_registration_path, class: 'btn btn-lg btn-primary' %>
+            <% else %>
               <%= link_to 'Sign up today', edit_user_registration_path, class: 'btn btn-lg btn-primary' %>
-              <%end %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@
             <p>Writing articles about events or your experiences, creating fancy events or communicating with users?
               All of this you can do, if you become a moderator! If you want to, feel free to contact us. </p>
             <% unless has_role?(:moderator) %>
-            <%=  link_to 'Contact us', new_question_path, class: 'btn btn-lg btn-primary'  %>
+              <%= link_to 'Contact us', new_question_path, class: 'btn btn-lg btn-primary' %>
             <% end %>
           </div>
         </div>
@@ -77,24 +77,29 @@
       <div class="row featurette">
         <div class="col-md-7">
           <h2 class="featurette-heading"><%= article.header %><span class="text-muted">
-            <%if article.user != nil %>
-            <%="By: " + article.user.email %>
-              <%end %>
+            <% if article.user != nil %>
+            <%= "By: " + article.user.email %>
+              <% end %>
               </span></h2>
           <p class="lead"><%= truncate(strip_tags(article.article.to_s), length: 655) %></p>
         </div>
 
         <div class="col-md-5">
           <br>
-           <%if article.avatar.attached? %>
-            <%= image_tag article.avatar, width: "250px", height: "250px"  %>
-              <%end %>
+          <% if article.avatar.attached? %>
+            <%= image_tag article.avatar, width: "250px", height: "250px" %>
+          <% end %>
         </div>
-
       </div>
-      <%= link_to 'Show', article %>
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
-      <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      <%= link_to 'Read more....', article %>
+
+      <% if has_role?(:admin) || has_role?(:moderator) %>
+
+        <%= link_to 'Edit', edit_article_path(article) %>
+        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      <% end %>
 
     <% end %>
     <hr class="featurette-divider">

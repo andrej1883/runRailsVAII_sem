@@ -4,15 +4,18 @@
   <div class="card-body">
     <%= comment.commentText %>
     <br>
+    <%if comment_author(comment) || has_role?(:admin) || has_role?(:moderator) %>
     <a class="level-item">
-      <%= link_to 'Edit', edit_article_comment_path(comment.article, comment)  %>
-      <span class="icon is-small"><i class="fa fa-pencil"></i></span>
+      <%= link_to edit_article_comment_path(comment.article, comment) do%>
+        <span class="icon is-small"><i class="fa fa-pencil"></i></span>
+      <%end %>
     </a>
     <a class="level-item">
-      <%= link_to 'Delete', [comment.article, comment],
-                  method: :delete, data: {confirm: "Are you sure ?" } %>
-      <span class="icon is-small"><i class="fa fa-trash-o"></i></span>
+      <%= link_to [comment.article, comment],
+                  method: :delete, data: {confirm: "Are you sure ?" } do %>
+        <span class="icon is-small"><i class="fa fa-trash-o"></i></span>
+    <%end %>
     </a>
-
+  <%end %>
   </div>
 </div>

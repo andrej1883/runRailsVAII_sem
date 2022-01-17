@@ -5,7 +5,7 @@
     <div class="card-body">
 
       <div class="field">
-        <%= form.text_area :commentText%>
+        <%= form.text_area :commentText, :required => true%>
       </div>
       <br>
       <%= form.submit 'Submit', class: 'btn btn-primary' %>

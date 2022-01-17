@@ -1,10 +1,25 @@
 <div class="container_basic">
   <br>
-  <% @users.each do |user| %>
-    <%= user.email %>
-    <%= user.roles.pluck(:name) %>
-    <%= link_to 'Edit roles', edit_user_path(user) %>
-    <%= link_to 'Delete user', user_path(user), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %>
-    <br>
-  <% end %>
+  <h2>Registered users: </h2>
+  <br>
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">email</th>
+      <th scope="col">roles</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%=user.id %></td>
+        <td><%= user.email %></td>
+        <td> <%= user.roles.pluck(:name) %></td>
+        <td> <%= link_to 'Edit roles', edit_user_path(user),class: 'btn btn-secondary' %></td>
+        <td> <%= link_to 'Delete user', user_path(user), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>

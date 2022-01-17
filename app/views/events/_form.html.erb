@@ -1,17 +1,16 @@
-<%= form_with(model: event) do |form| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+<div class="container_form">
+  <%= form_with(model: event) do |form| %>
+    <% if event.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-      <ul>
-        <% event.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="container_form">
+        <ul>
+          <% event.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <div class="card">
       <div class="card-header">
         <h2>Edit <%= @event.name %></h2>
@@ -59,5 +58,5 @@
 
       </div>
     </div>
-<% end %>
+  <% end %>
 </div>
