@@ -10,15 +10,9 @@
       <th scope="col">roles</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody id="userTable">
     <% @users.each do |user| %>
-      <tr>
-        <td><%=user.id %></td>
-        <td><%= user.email %></td>
-        <td> <%= user.roles.pluck(:name) %></td>
-        <td> <%= link_to 'Edit roles', edit_user_path(user),class: 'btn btn-secondary' %></td>
-        <td> <%= link_to 'Delete user', user_path(user), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %></td>
-      </tr>
+      <%= render 'user_row', user: user %>
     <% end %>
     </tbody>
   </table>

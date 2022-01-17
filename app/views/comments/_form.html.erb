@@ -8,7 +8,7 @@
         <%= form.text_area :commentText, :required => true%>
       </div>
       <br>
-      <%= form.submit 'Submit', class: 'btn btn-primary' %>
+      <%= form.submit 'Submit', class: 'btn btn-primary', data: {remote: true} %>
     </div>
   </div>
 

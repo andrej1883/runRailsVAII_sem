@@ -2,7 +2,7 @@
   <br>
   <div class="card">
     <div class="card-header text-center">Created: <%= time_ago_in_words(@article.created_at) %> ago
-      <% if article_author(@article) %>
+      <% if article_author(@article) || has_role?(:admin)%>
         <div class="buttons">
           <%= link_to 'Edit', edit_article_path(@article), class: 'button' %>
           <%= link_to 'Delete', articles_path(@article), method: :delete, data: { confirm: "Delete discussion?" }, class: 'button' %>
@@ -21,7 +21,7 @@
   <hr class="featurette-divider">
   <h2 class="subtitle is-5 has-text-grey"><%= @article.comments.count %> Comments</h2>
   <hr class="featurette-divider">
-  <div id="discussion-replies">
+  <div id="discussion">
     <%= render @article.comments %>
   </div>
   <hr class="featurette-divider">

@@ -1,18 +1,18 @@
 <br>
-<div class="card">
+<div class="card" id="comment<%=comment.id %>">
   <h6 class="card-header"><strong><%= comment.user.email %></strong> <small><%= time_ago_in_words(comment.created_at) %> ago</small></h6>
   <div class="card-body">
     <%= comment.commentText %>
     <br>
     <%if comment_author(comment) || has_role?(:admin) || has_role?(:moderator) %>
     <a class="level-item">
-      <%= link_to edit_article_comment_path(comment.article, comment) do%>
+      <%= link_to edit_article_comment_path(comment.article, comment) do %>
         <span class="icon is-small"><i class="fa fa-pencil"></i></span>
       <%end %>
     </a>
     <a class="level-item">
       <%= link_to [comment.article, comment],
-                  method: :delete, data: {confirm: "Are you sure ?" } do %>
+                  method: :delete, data: {confirm: "Are you sure ?", remote: true } do %>
         <span class="icon is-small"><i class="fa fa-trash-o"></i></span>
     <%end %>
     </a>

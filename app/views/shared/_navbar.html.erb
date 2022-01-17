@@ -16,7 +16,7 @@
           <%= link_to 'About', home_about_path, class: 'nav-link' %>
         </li>
 
-        <% if has_role?(:user) || has_role?(:admin) || !user_signed_in? %>
+        <% if !has_role?(:moderator) || has_role?(:admin) || !user_signed_in? %>
           <li class="nav-item">
             <%= link_to 'Contact us', new_question_path, class: 'nav-link' %>
           </li>

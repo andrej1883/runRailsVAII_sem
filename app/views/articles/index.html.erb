@@ -94,11 +94,15 @@
 
       <%= link_to 'Read more....', article %>
 
-      <% if has_role?(:admin) || has_role?(:moderator) %>
-
+      <% if has_role?(:admin) %>
         <%= link_to 'Edit', edit_article_path(article) %>
         <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
+      <% end %>
+      <% unless article.id.nil? %>
+        <% if article_author(article) && !has_role?(:admin)%>
+          <%= link_to 'Edit', edit_article_path(article) %>
+          <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       <% end %>
 
     <% end %>

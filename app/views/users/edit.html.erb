@@ -4,6 +4,9 @@
     <h5>User: <%= @user.email%></h5>
     <br>
     <%= form.collection_check_boxes :role_ids, Role.all, :id, :name %>
-    <%= form.button :submit %>
+    <br>
+    <br>
+    <%= form.submit 'Submit', class: 'btn btn-primary' %>
+    <%= link_to 'Back', users_path, class: 'btn btn-secondary' %>
   <% end %>
 </div>

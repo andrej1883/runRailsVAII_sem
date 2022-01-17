@@ -1,0 +1,7 @@
+<tr id="user_row_<%=user.id %>">
+  <td><%=user.id %></td>
+  <td><%= user.email %></td>
+  <td> <%= user.roles.pluck(:name) %></td>
+  <td> <%= link_to 'Edit roles', edit_user_path(user),class: 'btn btn-secondary' %></td>
+  <td> <%= link_to 'Destroy', user, method: :delete, data: { confirm: "Are you sure?", remote: true }, class: 'btn btn-danger' %></td>
+</tr>
