@@ -3,7 +3,7 @@
   <br>
   <div class="card">
     <div class="card-header">
-      <h1>Running Pace Caluculator</h1>
+      <h1>Running Pace Calculator</h1>
     </div>
     <div class="card-body">
       <h5 class="card-title">Calculate your prefered pace or time</h5>
@@ -12,8 +12,22 @@
       <p>Time: <input type="text" placeholder="hours" id="hours"/> : <input type="text" placeholder="minutes" id="minutes"/> : <input type="text" placeholder="seconds" id="seconds"/></p>
       <p>Pace: <input type="text" placeholder="Minutes" id="pace_field_m"/> : <input type="text" placeholder="Seconds" id="pace_field_s"/> minutes per km.</p>
       <br>
-      <p><button id="calculateP_btn" onclick="pace()" class="btn btn-primary">Calculate Pace</button>  <button id="clr_btn" onclick="pace()" class="btn btn-secondary">Clear</button> <button id="calculateT_btn" onclick="pace()" class="btn btn-primary">Calculate Time</button></p>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          Calculate pace
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+          Calculate time
+        </label>
+      </div>
+      <br>
+      <p><button id="calculateP_btn" onclick="pace()" class="btn btn-primary">Calculate </button>  <button id="clr_btn" onclick="pace()" class="btn btn-secondary">Clear</button></p>
     </div>
+
   </div>
 </div>
 
